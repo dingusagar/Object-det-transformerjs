@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Real-time object detection powered by Transformers.js and YOLOv9. Runs locally in your browser with AI-powered computer vision." />
+  <meta name="keywords" content="object detection, AI, machine learning, transformers.js, YOLOv9, computer vision" />
+  <title>Real-time Object Detection | Transformers.js + YOLOv9</title>
+  <script type="module" crossorigin src="/assets/index-BtRe5jnA.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-CZKRug3P.css">
+</head>
+
+<body>
+  <h1>
+    🤖 Real-time Object Detection
+  </h1>
+  <h4>
+    Powered by <a href="https://github.com/huggingface/transformers.js" target="_blank">🤗 Transformers.js</a>
+    & <a href="https://github.com/WongKinYiu/yolov9" target="_blank">YOLOv9</a>
+  </h4>
+
+  <div id="model-selector">
+    <label for="model-select">Model:</label>
+    <select id="model-select">
+      <option value="Xenova/yolos-tiny">YOLO Tiny (Fastest)</option>
+      <option value="Xenova/yolos-small">YOLO Small (Balanced)</option>
+      <option value="Xenova/yolov9-c">YOLOv9 Compact</option>
+      <option value="Xenova/gelan-c_all" selected>GELAN-C (Recommended)</option>
+    </select>
+    <button id="load-model-btn">Load Model</button>
+  </div>
+
+  <div id="container">
+    <video id="video" autoplay muted playsinline></video>
+    <canvas id="canvas" width="360" height="240"></canvas>
+    <div id="overlay"></div>
+  </div>
+  <div id="controls">
+    <div>
+      <label>Image Size</label>
+      <label id="size-value">128</label>
+      <input id="size" type="range" min="64" max="256" step="32" value="128" disabled>
+    </div>
+    <div>
+      <label>Threshold</label>
+      <label id="threshold-value">0.25</label>
+      <input id="threshold" type="range" min="0.01" max="1" step="0.01" value="0.25" disabled>
+    </div>
+    <div>
+      <label>Image Scale</label>
+      <label id="scale-value">0.5</label>
+      <input id="scale" type="range" min="0" max="1" step="0.01" value="0.5" disabled>
+    </div>
+  </div>
+  <label id="status"></label>
+
+</body>
+
+</html>
